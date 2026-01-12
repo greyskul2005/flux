@@ -1,19 +1,19 @@
 {
-  "last_node_id": 16,
-  "last_link_id": 19,
+  "last_node_id": 7,
+  "last_link_id": 10,
   "nodes": [
     {
       "id": 1,
       "type": "CheckpointLoaderSimple",
-      "pos": [100, 50],
+      "pos": [100, 100],
       "size": {"0": 315, "1": 98},
       "flags": {},
       "order": 0,
       "mode": 0,
       "outputs": [
-        {"name": "MODEL", "type": "MODEL", "links": [1, 2], "slot_index": 0},
-        {"name": "CLIP", "type": "CLIP", "links": [3], "slot_index": 1},
-        {"name": "VAE", "type": "VAE", "links": [4], "slot_index": 2}
+        {"name": "MODEL", "type": "MODEL", "links": [1], "slot_index": 0},
+        {"name": "CLIP", "type": "CLIP", "links": [2], "slot_index": 1},
+        {"name": "VAE", "type": "VAE", "links": [3], "slot_index": 2}
       ],
       "properties": {"Node name for S&R": "CheckpointLoaderSimple"},
       "widgets_values": ["fuxCapacityNSFWFlux_50.safetensors"]
@@ -21,18 +21,18 @@
     {
       "id": 2,
       "type": "LoraLoader",
-      "pos": [100, 200],
+      "pos": [100, 250],
       "size": {"0": 315, "1": 98},
       "flags": {},
       "order": 1,
       "mode": 0,
       "inputs": [
         {"name": "model", "type": "MODEL", "link": 1, "slot_index": 0},
-        {"name": "clip", "type": "CLIP", "link": 3, "slot_index": 1}
+        {"name": "clip", "type": "CLIP", "link": 2, "slot_index": 1}
       ],
       "outputs": [
-        {"name": "MODEL", "type": "MODEL", "links": [5, 6], "slot_index": 0},
-        {"name": "CLIP", "type": "CLIP", "links": [7], "slot_index": 1}
+        {"name": "MODEL", "type": "MODEL", "links": [4], "slot_index": 0},
+        {"name": "CLIP", "type": "CLIP", "links": [5], "slot_index": 1}
       ],
       "properties": {"Node name for S&R": "LoraLoader"},
       "widgets_values": ["NSFW_Master_Flux.safetensors", null, 0.6]
@@ -40,98 +40,98 @@
     {
       "id": 3,
       "type": "CLIPTextEncode",
-      "pos": [500, 50],
+      "pos": [450, 100],
       "size": {"0": 425.27801513671875, "1": 164.31304931640625},
       "flags": {},
       "order": 2,
       "mode": 0,
       "inputs": [
-        {"name": "clip", "type": "CLIP", "link": 7, "slot_index": 0}
+        {"name": "clip", "type": "CLIP", "link": 5, "slot_index": 0}
       ],
       "outputs": [
-        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [8], "slot_index": 0}
+        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [6], "slot_index": 0}
       ],
       "properties": {"Node name for S&R": "CLIPTextEncode"},
-      "widgets_values": ["Ultra realistic candid selfie of Valeria Voss, 24-year-old Italian woman, dark brown wavy hair with natural texture, warm olive skin tone with subtle freckles, natural face with soft imperfect symmetry, realistic skin texture with small natural blemishes, minimal makeup, natural full lips with slight asymmetry, expressive green almond-shaped eyes, casual indoor luxury setting in chic Barcelona apartment, soft natural daylight from window, smartphone photo, close-up headshot, intimate and authentic feeling, photorealistic, masterpiece, best quality, 8k, ultra detailed, NSFW, sensual, beautiful, artistic, tasteful, elegant, sophisticated"]
+      "widgets_values": ["Ultra realistic candid selfie of Valeria Voss, 24-year-old Italian woman, dark brown wavy hair, warm olive skin tone, natural face with soft imperfect symmetry, realistic skin texture, minimal makeup, natural full lips, expressive green eyes, casual indoor luxury setting in Barcelona apartment, soft natural daylight, smartphone photo, close-up headshot, photorealistic, masterpiece, best quality"]
     },
     {
       "id": 4,
       "type": "CLIPTextEncode",
-      "pos": [500, 250],
+      "pos": [450, 300],
       "size": {"0": 425.27801513671875, "1": 164.31304931640625},
       "flags": {},
-      "order": 2,
+      "order": 3,
       "mode": 0,
       "inputs": [
-        {"name": "clip", "type": "CLIP", "link": 7, "slot_index": 0}
+        {"name": "clip", "type": "CLIP", "link": 5, "slot_index": 0}
       ],
       "outputs": [
-        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [9], "slot_index": 0}
+        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [7], "slot_index": 0}
       ],
       "properties": {"Node name for S&R": "CLIPTextEncode"},
-      "widgets_values": ["model face, beauty standards, perfect symmetry, perfect teeth, airbrushed skin, plastic skin, beauty editorial, fashion shoot, studio lighting, professional pose, instagram filter, overprocessed, retouched, cgi, cartoon, anime, celebrity, famous person, child, teen, young looking, pale skin, blonde hair, blue eyes, heavy makeup, dramatic lighting, unnatural hair, symmetrical features, flawless complexion, deformed, distorted, disfigured, poorly drawn, bad anatomy, wrong anatomy, extra limb, missing limb, floating limbs, mutated hands and fingers, disconnected limbs, mutation, mutated, ugly, blurry, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, artist name"]
+      "widgets_values": ["deformed, bad anatomy, disfigured, poorly drawn face, mutated, extra limb, ugly, poorly drawn hands, missing limb, blurry, floating limbs, disconnected limbs, malformed hands, out of focus, long neck, long body, mutated hands and fingers, bad hands, missing fingers, cropped, worst quality, low quality, signature, watermark, username, artist name"]
     },
     {
       "id": 5,
       "type": "EmptyLatentImage",
-      "pos": [500, 450],
+      "pos": [450, 500],
       "size": {"0": 315, "1": 106},
       "flags": {},
-      "order": 3,
+      "order": 4,
       "mode": 0,
       "outputs": [
-        {"name": "LATENT", "type": "LATENT", "links": [10], "slot_index": 0}
+        {"name": "LATENT", "type": "LATENT", "links": [8], "slot_index": 0}
       ],
       "properties": {"Node name for S&R": "EmptyLatentImage"},
-      "widgets_values": [1024, 1024, 1]
+      "widgets_values": [768, 1024, 1]
     },
     {
       "id": 6,
       "type": "KSampler",
-      "pos": [750, 250],
+      "pos": [800, 250],
       "size": {"0": 315, "1": 262},
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {"name": "model", "type": "MODEL", "link": 5, "slot_index": 0},
-        {"name": "positive", "type": "CONDITIONING", "link": 8, "slot_index": 1},
-        {"name": "negative", "type": "CONDITIONING", "link": 9, "slot_index": 2},
-        {"name": "latent_image", "type": "LATENT", "link": 10, "slot_index": 3}
-      ],
-      "outputs": [
-        {"name": "LATENT", "type": "LATENT", "links": [11], "slot_index": 0}
-      ],
-      "properties": {"Node name for S&R": "KSampler"},
-      "widgets_values": [897087417276246, "randomize", 35, 7.5, "euler", "simple", 1]
-    },
-    {
-      "id": 7,
-      "type": "VAEDecode",
-      "pos": [1000, 250],
-      "size": {"0": 210, "1": 46},
       "flags": {},
       "order": 5,
       "mode": 0,
       "inputs": [
-        {"name": "samples", "type": "LATENT", "link": 11, "slot_index": 0},
-        {"name": "vae", "type": "VAE", "link": 4, "slot_index": 1}
+        {"name": "model", "type": "MODEL", "link": 4, "slot_index": 0},
+        {"name": "positive", "type": "CONDITIONING", "link": 6, "slot_index": 1},
+        {"name": "negative", "type": "CONDITIONING", "link": 7, "slot_index": 2},
+        {"name": "latent_image", "type": "LATENT", "link": 8, "slot_index": 3}
       ],
       "outputs": [
-        {"name": "IMAGE", "type": "IMAGE", "links": [12, 13], "slot_index": 0}
+        {"name": "LATENT", "type": "LATENT", "links": [9], "slot_index": 0}
+      ],
+      "properties": {"Node name for S&R": "KSampler"},
+      "widgets_values": [1, "fixed", 30, 7.5, "euler", "normal", 1]
+    },
+    {
+      "id": 7,
+      "type": "VAEDecode",
+      "pos": [1150, 250],
+      "size": {"0": 210, "1": 46},
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {"name": "samples", "type": "LATENT", "link": 9, "slot_index": 0},
+        {"name": "vae", "type": "VAE", "link": 3, "slot_index": 1}
+      ],
+      "outputs": [
+        {"name": "IMAGE", "type": "IMAGE", "links": [10], "slot_index": 0}
       ],
       "properties": {"Node name for S&R": "VAEDecode"}
     },
     {
       "id": 8,
       "type": "SaveImage",
-      "pos": [1250, 250],
-      "size": {"0": 315, "1": 46},
+      "pos": [1400, 250],
+      "size": {"0": 210, "1": 46},
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
-        {"name": "images", "type": "IMAGE", "link": 12, "slot_index": 0}
+        {"name": "images", "type": "IMAGE", "link": 10, "slot_index": 0}
       ],
       "properties": {"Node name for S&R": "SaveImage"},
       "widgets_values": ["ComfyUI"]
@@ -139,140 +139,28 @@
     {
       "id": 9,
       "type": "PreviewImage",
-      "pos": [1250, 150],
-      "size": {"0": 315, "1": 46},
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {"name": "images", "type": "IMAGE", "link": 13, "slot_index": 0}
-      ],
-      "properties": {"Node name for S&R": "PreviewImage"}
-    },
-    {
-      "id": 10,
-      "type": "LoadImage",
-      "pos": [1000, 500],
-      "size": {"0": 315, "1": 262},
+      "pos": [1400, 150],
+      "size": {"0": 210, "1": 46},
       "flags": {},
       "order": 7,
       "mode": 0,
-      "outputs": [
-        {"name": "IMAGE", "type": "IMAGE", "links": [14], "slot_index": 0},
-        {"name": "MASK", "type": "MASK", "links": null, "slot_index": 1}
-      ],
-      "properties": {"Node name for S&R": "LoadImage"}
-    },
-    {
-      "id": 11,
-      "type": "UpscaleModelLoader",
-      "pos": [1000, 400],
-      "size": {"0": 315, "1": 58},
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "outputs": [
-        {"name": "UPSCALE_MODEL", "type": "UPSCALE_MODEL", "links": [15], "slot_index": 0}
-      ],
-      "properties": {"Node name for S&R": "UpscaleModelLoader"},
-      "widgets_values": ["4x_NMKD-Siax_200k.pth"]
-    },
-    {
-      "id": 12,
-      "type": "ImageUpscaleWithModel",
-      "pos": [1250, 450],
-      "size": {"0": 315, "1": 106},
-      "flags": {},
-      "order": 9,
-      "mode": 0,
       "inputs": [
-        {"name": "upscale_model", "type": "UPSCALE_MODEL", "link": 15, "slot_index": 0},
-        {"name": "image", "type": "IMAGE", "link": 14, "slot_index": 1}
-      ],
-      "outputs": [
-        {"name": "IMAGE", "type": "IMAGE", "links": [16, 17], "slot_index": 0}
-      ],
-      "properties": {"Node name for S&R": "ImageUpscaleWithModel"}
-    },
-    {
-      "id": 13,
-      "type": "SaveImage",
-      "pos": [1500, 450],
-      "size": {"0": 315, "1": 46},
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {"name": "images", "type": "IMAGE", "link": 16, "slot_index": 0}
-      ],
-      "properties": {"Node name for S&R": "SaveImage"},
-      "widgets_values": ["ComfyUI_upscaled"]
-    },
-    {
-      "id": 14,
-      "type": "PreviewImage",
-      "pos": [1500, 350],
-      "size": {"0": 315, "1": 46},
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {"name": "images", "type": "IMAGE", "link": 17, "slot_index": 0}
+        {"name": "images", "type": "IMAGE", "link": 10, "slot_index": 0}
       ],
       "properties": {"Node name for S&R": "PreviewImage"}
-    },
-    {
-      "id": 15,
-      "type": "VAELoader",
-      "pos": [100, 350],
-      "size": {"0": 315, "1": 58},
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "outputs": [
-        {"name": "VAE", "type": "VAE", "links": [18], "slot_index": 0}
-      ],
-      "properties": {"Node name for S&R": "VAELoader"},
-      "widgets_values": ["ae.sft"]
-    },
-    {
-      "id": 16,
-      "type": "ConditioningSetTimestepRange",
-      "pos": [750, 100],
-      "size": {"0": 210, "1": 46},
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {"name": "conditioning", "type": "CONDITIONING", "link": 8, "slot_index": 0}
-      ],
-      "outputs": [
-        {"name": "CONDITIONING", "type": "CONDITIONING", "links": [19], "slot_index": 0}
-      ],
-      "properties": {"Node name for S&R": "ConditioningSetTimestepRange"},
-      "widgets_values": [0, 0.85]
     }
   ],
   "links": [
     [1, 1, 0, 2, 0, "MODEL"],
-    [2, 1, 0, 6, 0, "MODEL"],
-    [3, 1, 1, 2, 1, "CLIP"],
-    [4, 1, 2, 7, 1, "VAE"],
-    [5, 2, 0, 6, 0, "MODEL"],
-    [6, 2, 0, 6, 0, "MODEL"],
-    [7, 2, 1, 3, 0, "CLIP"],
-    [8, 3, 0, 6, 1, "CONDITIONING"],
-    [9, 4, 0, 6, 2, "CONDITIONING"],
-    [10, 5, 0, 6, 3, "LATENT"],
-    [11, 6, 0, 7, 0, "LATENT"],
-    [12, 7, 0, 8, 0, "IMAGE"],
-    [13, 7, 0, 9, 0, "IMAGE"],
-    [14, 10, 0, 12, 1, "IMAGE"],
-    [15, 11, 0, 12, 0, "UPSCALE_MODEL"],
-    [16, 12, 0, 13, 0, "IMAGE"],
-    [17, 12, 0, 14, 0, "IMAGE"],
-    [18, 15, 0, 7, 1, "VAE"],
-    [19, 16, 0, 6, 1, "CONDITIONING"]
+    [2, 1, 1, 2, 1, "CLIP"],
+    [3, 1, 2, 7, 1, "VAE"],
+    [4, 2, 0, 6, 0, "MODEL"],
+    [5, 2, 1, 3, 0, "CLIP"],
+    [6, 3, 0, 6, 1, "CONDITIONING"],
+    [7, 4, 0, 6, 2, "CONDITIONING"],
+    [8, 5, 0, 6, 3, "LATENT"],
+    [9, 6, 0, 7, 0, "LATENT"],
+    [10, 7, 0, 8, 0, "IMAGE"]
   ],
   "groups": [],
   "config": {},
